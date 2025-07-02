@@ -1,1 +1,65 @@
 //Ejercicio 3
+
+ //CABECERA
+    function ejercicio3: Integer;
+
+
+
+//EJERCICIO POO
+
+function invertir(x: Integer): Integer;
+var
+  r, a: Integer;
+begin
+  r := 0;
+  while x > 0 do
+  begin
+    a := x mod 10;
+    x := x div 10;
+    r := r * 10 + a;
+  end;
+  Result := r;
+end;
+
+
+function mn(x: Integer): Integer;
+var a, m: Integer;
+begin
+  m := 9;
+  while x > 0 do
+  begin
+    a := x mod 10; x := x div 10;
+    if a < m then m := a;
+  end;
+  Result := m;
+end;
+
+function e1d(x, y: Integer): Integer;
+var r, a: Integer;
+begin
+  r := 0;
+  while x > 0 do
+  begin
+    a := x mod 10; x := x div 10;
+    if a <> y then r := r * 10 + a;
+  end;
+  Result := invertir(r);
+end;
+
+function NumeroNatural.ejercicio3: Integer;
+var a, r, n: Integer;
+begin
+  n := Valor; r := 0;
+  while n > 0 do
+  begin
+    a := mn(n); r := r * 10 + a; n := e1d(n, a);
+  end;
+  Result := r;
+end;
+
+//LLAMADA
+  Edit2.Text := IntToStr(Numero.ejercicio3);
+
+
+
+  
