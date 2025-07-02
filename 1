@@ -1,1 +1,35 @@
 //Ejercicio 1
+
+//LLAMADA
+function ejercicio1(n: Integer): Real;
+var
+  i, nota, suma: Integer;
+  cat: string;
+begin
+  suma := 0;
+
+  for i := 1 to n do
+  begin
+    nota := StrToInt(InputBox('', 'Ingrese nota ' + IntToStr(i), ''));
+
+    if (nota >= 1) and (nota <= 50) then
+      cat := 'Reprobado'
+    else if (nota >= 51) and (nota <= 70) then
+      cat := 'Bueno'
+    else if (nota > 70) and (nota <= 90) then
+      cat := 'Muy Bueno'
+    else if (nota > 90) and (nota <= 100) then
+      cat := 'Excelente'
+    else
+      cat := 'Nota fuera de rango';
+
+    ShowMessage('Nota ' + IntToStr(i) + ': ' + cat);
+    suma := suma + nota;
+  end;
+
+  Result := suma / n;
+end;
+//LLAMADA
+  Edit3.Text := FloatToStr(ejercicio1(n));
+
+  
