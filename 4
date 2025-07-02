@@ -1,1 +1,22 @@
 //Ejercicio 4
+function GenerarPassword(cad: string): string;
+var
+  parteNombre, ultimosDigitos, caracterEspecial: string;
+  i: Integer;
+  anioActual: Integer;
+begin
+  parteNombre := '';
+  for i := 1 to 3 do
+  begin
+    if i <= Length(cad) then
+      parteNombre := parteNombre + cad[i];
+  end;
+  anioActual := 2025;
+  ultimosDigitos := IntToStr(anioActual mod 100);
+  caracterEspecial := '#';
+  Result := parteNombre + ultimosDigitos + caracterEspecial;
+end;
+
+
+//LLAMADA
+    Edit3.Text:=   GenerarPassword(cad);
