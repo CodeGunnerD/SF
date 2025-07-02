@@ -1,1 +1,52 @@
 //Ejercicio 2
+
+function ejercicio2(n: Integer): Real;
+var
+  i, j: Integer;
+  sumaActual: Real;
+  signo: Integer;
+  resultado, fracion, suma: Real;
+  sw: Boolean;
+begin
+  resultado := 0;
+  fracion := 0;
+  sw := true;
+  signo := 1; // Empezamos con signo positivo
+  suma := 0;
+  for i := 1 to n do
+  begin
+    // Calcular la suma de 1 hasta i
+    sumaActual := 0;
+    for j := 1 to i do
+    begin
+      sumaActual := sumaActual + j; //15
+    end;
+
+    if sw = true then
+    begin
+
+      resultado := sumaActual; // 4
+      fracion := resultado / i; // 4/4
+      suma := suma + fracion; // ..+4/4
+      if i >= 2 then
+      begin
+        sw := false;
+      end;
+
+    end
+    else
+    begin
+
+      resultado := sumaActual;
+      fracion := resultado / i;
+      suma := suma - fracion;
+      sw := true;
+    end;
+
+  end;
+
+  Result := suma;
+end;
+//llamda
+  Edit3.Text := FloatToStr(ejercicio2(n));
+
